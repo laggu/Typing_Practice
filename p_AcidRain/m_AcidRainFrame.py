@@ -1,8 +1,9 @@
-from PyQt5.QtWidgets import QFrame, QVBoxLayout, QLineEdit
+from PyQt5.QtWidgets import QFrame, QVBoxLayout
 from p_AcidRain import *
 
 class c_AcidRainFrame(QFrame):
     level = 1
+    score = 0
 
     def __init__(self, mainwindow):
         super(c_AcidRainFrame, self).__init__(mainwindow)
@@ -17,9 +18,9 @@ class c_AcidRainFrame(QFrame):
         self.setFrameStyle(6)
         vboxlayout = QVBoxLayout()
 
-        gameframe = m_GameFrame.c_GameFrame(self)
-        typingframe = m_TypingFrame.c_TypingFrame()
+        self.gameframe = m_GameFrame.c_GameFrame(self)
+        self.typingframe = m_TypingFrame.c_TypingFrame(self)
 
-        vboxlayout.addWidget(gameframe)
-        vboxlayout.addWidget(typingframe)
+        vboxlayout.addWidget(self.gameframe)
+        vboxlayout.addWidget(self.typingframe)
         self.setLayout(vboxlayout)
